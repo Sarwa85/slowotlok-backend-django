@@ -6,7 +6,7 @@ class Score(models.Model):
     bad = models.IntegerField(default=0)
 
     def __str__(self):
-        return "{good: %s, bad: %s}"% (self.good, self.bad)
+        return "{good: %s, bad: %s}" % (self.good, self.bad)
 
 
 class Card(models.Model):
