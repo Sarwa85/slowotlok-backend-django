@@ -12,7 +12,7 @@ class Score(models.Model):
 class Card(models.Model):
     source = models.CharField(max_length=200)
     tr = models.CharField("translation", max_length=200)
-    score = models.ForeignKey(Score, on_delete=models.CASCADE)
+    score = models.OneToOneField(Score, on_delete=models.CASCADE)
 
     def __str__(self):
         return "{id: %s, source: '%s', tr: '%s', score: %s}" % (self.id, self.source, self.tr, self.score)
