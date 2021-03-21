@@ -1,7 +1,10 @@
 from django.urls import path
-
-from . import views
+from .cardlistview import CardListView
+from .cardview import CardView
 
 urlpatterns = [
-    path('card/<int:card_id>', views.get_card, name="get-card")
+    path("card/", CardListView.as_view()),
+    path('card/<int:card_id>', CardView.as_view()),
+
+    # path('score/add', controler.score_add, name="score-add")
 ]
