@@ -1,5 +1,7 @@
 from django.http import HttpResponse
+from .models import Card
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+def get_card(request, card_id):
+    c = Card.objects.get(id=card_id)
+    return HttpResponse(c, status=200)
