@@ -16,10 +16,8 @@ class CardSerializer(serializers.ModelSerializer):
         model = Card
         fields = ["id", "source", "tr", "score"]
 
-    # def to_representation(self, obj):
-    #     """Move fields from profile to user representation."""
-    #     representation = super().to_representation(obj)
-    #     score_representation = representation.pop('score')
-    #     for key in score_representation:
-    #         representation[key] = score_representation[key]
-    #     return representation
+
+class CardRequestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Card
+        fields = ["source", "tr"]

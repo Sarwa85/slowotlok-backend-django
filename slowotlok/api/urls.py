@@ -3,8 +3,9 @@ from .cardlistview import CardListView
 from .cardview import CardView
 
 urlpatterns = [
-    path("card/", CardListView.as_view()),
-    path('card/<int:card_id>', CardView.as_view()),
+    # get, post
+    path("cards", CardListView.as_view(), name="card"),
 
-    # path('score/add', controler.score_add, name="score-add")
+    # get, delete
+    path('cards/<int:card_id>', CardView.as_view(), name="card_with_id"),
 ]
