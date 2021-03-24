@@ -10,14 +10,15 @@ class ScoreSerializer(serializers.ModelSerializer):
 
 
 class CardSerializer(serializers.ModelSerializer):
-    score = ScoreSerializer()
+    score = ScoreSerializer(required=True)
 
     class Meta:
         model = Card
         fields = ["id", "source", "tr", "score"]
 
+    def create(self, validated_data):
+        s_data = validated_data.pop('score')
+        validated_data['score'] = ScoreSerializer.create(ScoreSerializer(), validated_data=s_data)
+        c, created = Card.objects.update_or_create(**validated_data)
+        return c
 
-class CardRequestSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Card
-        fields = ["source", "tr"]
