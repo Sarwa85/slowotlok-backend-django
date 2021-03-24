@@ -6,6 +6,6 @@ urlpatterns = [
     # get, post
     path("cards", CardListView.as_view(), name="card"),
 
-    # get, delete
+    # get, delete, patch
     path('cards/<int:card_id>', CardView.as_view(), name="card_with_id"),
 ]

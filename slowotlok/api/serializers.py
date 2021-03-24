@@ -17,8 +17,6 @@ class CardSerializer(serializers.ModelSerializer):
         fields = ["id", "source", "tr", "score"]
 
     def create(self, validated_data):
-        s_data = validated_data.pop('score')
-        validated_data['score'] = ScoreSerializer.create(ScoreSerializer(), validated_data=s_data)
-        c, created = Card.objects.update_or_create(**validated_data)
-        return c
-
+        score_data = validated_data.pop('score')
+        validated_data["score"] = Score.objects.create(**score_data)
+        return Card.objects.create(**validated_data)

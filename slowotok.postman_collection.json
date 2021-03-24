@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"source\": \"fussy\",\n    \"tr\": \"wybredny\"\n}",
+					"raw": "{\n    \"source\": \"555\",\n    \"tr\": \"kot\",\n    \"score\": {\n        \"good\": 111,\n        \"bad\": 0\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,7 +40,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"source\": \"asd\",\n    \"tr\": \"asd\"\n}",
+					"raw": "{\n    \"source\": \"666\",\n    \"tr\": \"kot1\",\n    \"score\": {\n        \"good\": 2120,\n        \"bad\": 120\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,7 +48,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{ip}}:{{port}}/{{url_cards}}/3",
+					"raw": "http://{{ip}}:{{port}}/{{url_cards}}/25",
 					"protocol": "http",
 					"host": [
 						"{{ip}}"
@@ -56,36 +56,7 @@
 					"port": "{{port}}",
 					"path": [
 						"{{url_cards}}",
-						"3"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "update_score",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"good\": 666,\n    \"bad\": 777\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://{{ip}}:{{port}}/{{url_cards}}/3",
-					"protocol": "http",
-					"host": [
-						"{{ip}}"
-					],
-					"port": "{{port}}",
-					"path": [
-						"{{url_cards}}",
-						"3"
+						"25"
 					]
 				}
 			},
@@ -147,14 +118,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/card?order=random&limit=10",
+					"raw": "http://{{ip}}:{{port}}/{{url_cards}}?order=random&limit=10",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{ip}}"
 					],
-					"port": "5000",
+					"port": "{{port}}",
 					"path": [
-						"card"
+						"{{url_cards}}"
 					],
 					"query": [
 						{
@@ -185,54 +156,6 @@
 					"path": [
 						"{{url_cards}}",
 						"3"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:5000/score/add",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"card_id\": 3,\n    \"good\": 1,\n    \"bad\": 0\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:5000/score/add",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"score",
-						"add"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:5000/card",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/card",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"card"
 					]
 				}
 			},
